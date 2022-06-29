@@ -23,7 +23,7 @@ export default async function handler(
   const videos = data?.items?.map((item: Item) => ({
     title: item.snippet.title,
     description: item.snippet.description,
-    thumbnail: item.snippet.thumbnails.default.url,
+    thumbnail: item.snippet.thumbnails.high.url,
   }));
 
   res.status(200).json({

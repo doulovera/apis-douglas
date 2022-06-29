@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import getRapidApi from '@utils/getRapidApi';
-import { Item, MappedItem } from '@typests/courses/async/channel';
+import { MappedItem } from '@typests/courses/async/channel';
 
 type Data = {
   data?: MappedItem,
