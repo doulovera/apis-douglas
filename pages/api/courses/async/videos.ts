@@ -1,6 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { Item, MappedItem } from '../../../../types/courses/async/videos';
-import getRapidApi from '../../../../utils/getRapidApi';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import getRapidApi from '@utils/getRapidApi';
+import { Item, MappedItem } from '@typests/courses/async/videos';
 
 type Data = {
   data?: {
@@ -20,7 +20,7 @@ export default async function handler(
 
   const data = await getRapidApi(`https://youtube-v31.p.rapidapi.com/search?channelId=${query.channelId}&part=snippet%2Cid&order=date&maxResults=9`)
 
-  const videos = data.items.map((item: Item) => ({
+  const videos = data?.items?.map((item: Item) => ({
     title: item.snippet.title,
     description: item.snippet.description,
     thumbnail: item.snippet.thumbnails.default.url,
