@@ -16,7 +16,7 @@ export default async function handler(
 
   const { subreddit, url } = body;
 
-  if (!subreddit.includes('minecraft')) return res.status(200).json({ message: 'ok' });
+  if (!subreddit.toLowerCase().includes('minecraft')) return res.status(200).json({ message: 'ok' });
 
   try {
     const response = await fetch(`https://discord.com/api/webhooks/1011069949827100712/${DISCORD_MINECRAFT_TOKEN}`, {
