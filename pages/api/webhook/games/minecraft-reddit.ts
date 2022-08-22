@@ -12,13 +12,9 @@ export default async function handler(
   const { method, body } = req;
   const DISCORD_MINECRAFT_TOKEN = process.env.DISCORD_MINECRAFT_TOKEN;
 
-  console.log(req.body)
-
   if (method !== 'POST') return res.status(400).json({ error: 'Bad request' });
 
-  const { subreddit, url } = JSON.parse(body);
-
-  console.log(subreddit, url)
+  const { subreddit, url } = body;
 
   if (!subreddit.includes('minecraft')) return res.status(200).json({ message: 'ok' });
 
